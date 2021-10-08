@@ -18,15 +18,13 @@ while True:
 	if results.multi_hand_landmarks:
 		for handlms in results.multi_hand_landmarks:
 			mpdraw.draw_landmarks(img,handlms,mphands.HAND_CONNECTIONS)
-			cv.
 
 
-	ctime=time.time
+	ctime=time.time()
 	fps=1/(ctime-ptime)
 	ptime=ctime
+	cv.putText(img,str(int(fps)),(10,90),cv.FONT_HERSHEY_PLAIN,3,(255,0,255),3)
 	cv.imshow('image',img)
-	cv.putText(img,str(int(fps)),(10,90),cv.)
-
 
 	key = cv.waitKey(1)
 	if key == ord('q'):
